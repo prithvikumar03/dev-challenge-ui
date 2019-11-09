@@ -1,48 +1,32 @@
-
-<!-- <div id="mySvgNetwork" #svgNetwork></div> -->
-
 <mat-toolbar color="primary">
     <span class="fill-remaining-space">Paradise Graph Data</span>
 </mat-toolbar>
 
+<div >
+    <br/>
+    <mat-form-field  class="outputBoxClass">
+        <mat-label>Select Id</mat-label>  
+        <select matNativeControl required>
+        <option *ngFor="let temp of ids" [value]="temp" (click)="getSelectedId(temp)">
+            {{temp}}
+        </option>
+        </select>
+    </mat-form-field>
 
-
-
-<!-- <form [formGroup]="paradiseDataForm"> -->
-    <div >
-        <!-- <label for="paradiseId" class="searchLabelClass">Paradise Id</label>       -->
-        <br/>
-        <!-- <input type="search" formControlName="paradiseId" class="searchBoxClass"/> -->
-        <!-- <h2>Basic mat-select</h2> -->
-        <mat-form-field  class="outputBoxClass">
-            <mat-label>Select Id</mat-label>  
+    <mat-form-field  class="filterClass">
+            <mat-label>Select Filter</mat-label>  
             <select matNativeControl required>
-            <option *ngFor="let temp of ids" [value]="temp">
+            <option *ngFor="let temp of filters" [value]="temp" (click)="getSelectedFilter(temp)">
                 {{temp}}
             </option>
             </select>
-        </mat-form-field>
-        <br/>
-        <button type="submit" class="searchButtonClass" (click)="populateGraph('GetUID')">Get Graph</button>
-    </div>
-<!-- </form> -->
+    </mat-form-field>
+    <br/>
+    <button type="submit" class="searchButtonClass" (click)="populateGraph('GetUID')">Get Graph</button>
+    <button type="submit" class="filterButtonClass" (click)="applyFilter()">Apply Filter</button>
+</div>
 
 <br/>
 
 <div class="mynetwork" id="mynetwork" #siteConfigNetwork></div>
-
-
-
-<!-- <style type="text/css">
-    #mynetwork {
-        width: 700px;
-        height: 300px;
-        border: 1px solid lightgray;
-    }
-    #mySvgNetwork {
-        width: 700px;
-        height: 300px;
-        border: 1px solid lightgray;
-    }
-</style> -->
 

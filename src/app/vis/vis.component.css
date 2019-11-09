@@ -44,3 +44,17 @@ mat-cell.mat-cell, mat-header-cell.mat-header-cell {
   width: 15%;
   margin-left: 18px;
 }
+
+.filterClass {
+  width: 15%;
+  margin-left: 48px;
+}
+
+.filterButtonClass{
+  margin-top: 5px;
+  margin-left: 48px;
+  margin-bottom: 5px;
+  width: 15%;
+  background-color: cornflowerblue;
+  color: white;
+}
