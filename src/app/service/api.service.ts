@@ -5,23 +5,20 @@ import { ParadiseNode } from '../model/paradise-node';
 @Injectable({
   providedIn: 'root'
 })
-export class GetConnectionsService {
+export class ApiService {
 
   constructor(private httpClient:HttpClient) { }
 
   public getNodeConnections(paradiseNode:ParadiseNode){
-
-    let headers = new HttpHeaders({ 'Content-Type': 'application/json; charset=utf-8'});
-
-    let body = new HttpParams();
-    body = body.set('nodeId',paradiseNode.id);
-    //body = body.set('ouputPath',downloadRequest.outputPath);
-
     console.log(JSON.stringify(paradiseNode));
-    //return this.httpClient.get("http://127.0.0.1:5000/download",JSON.stringify(paradiseNode),{headers: headers});
+    let temp = this.httpClient.get("/mongosteen-quicklook/rest/evaluation/"+paradiseNode.id+"/simulationUids");        
+    console.log(temp);
+    return temp;
   }
 
   public getAllNodeIds(){
-    
+    let temp = this.httpClient.get("/mongosteen-quicklook/rest/evaluation/nodeIds");        
+    console.log(temp);
+    return temp;
   }
 }

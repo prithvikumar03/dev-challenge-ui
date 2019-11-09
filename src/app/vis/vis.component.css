@@ -1,0 +1,46 @@
+
+.mynetwork {
+  /* display: flex;
+  flex-flow: column; */
+  flex: 1;
+  overflow: auto;
+  width: 1000px;
+  height: 500px;
+  margin-left: 18px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border: 1px solid lightgray;
+}
+
+.mySvgNetwork {
+    width: 700px;
+    height: 300px;
+    border: 1px solid lightgray;
+}
+
+.searchBoxClass {
+    width: 15%;
+    margin-left: 18px;
+}
+  
+.searchLabelClass{
+    margin-left: 18px;
+}
+  
+.searchButtonClass{
+  margin-top: 5px;
+  margin-left: 18px;
+  margin-bottom: 5px;
+  width: 15%;
+  background-color: cornflowerblue;
+  color: white;
+}
+
+mat-cell.mat-cell, mat-header-cell.mat-header-cell {
+  overflow: visible;
+}
+
+.outputBoxClass {
+  width: 15%;
+  margin-left: 18px;
+}

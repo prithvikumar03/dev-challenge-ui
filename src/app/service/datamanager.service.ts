@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class BootstrapService {
+export class DatamanagerService {
 
 nodes =[
     {id: 1, label: 'Node 1', title: 'I am node 1! <br> X'},

@@ -1,13 +1,39 @@
 
 <!-- <div id="mySvgNetwork" #svgNetwork></div> -->
 
+<mat-toolbar color="primary">
+    <span class="fill-remaining-space">Paradise Graph Data</span>
+</mat-toolbar>
+
+
+
+
+<!-- <form [formGroup]="paradiseDataForm"> -->
+    <div >
+        <!-- <label for="paradiseId" class="searchLabelClass">Paradise Id</label>       -->
+        <br/>
+        <!-- <input type="search" formControlName="paradiseId" class="searchBoxClass"/> -->
+        <!-- <h2>Basic mat-select</h2> -->
+        <mat-form-field  class="outputBoxClass">
+            <mat-label>Select Id</mat-label>  
+            <select matNativeControl required>
+            <option *ngFor="let temp of ids" [value]="temp">
+                {{temp}}
+            </option>
+            </select>
+        </mat-form-field>
+        <br/>
+        <button type="submit" class="searchButtonClass" (click)="populateGraph('GetUID')">Get Graph</button>
+    </div>
+<!-- </form> -->
+
 <br/>
 
-<div id="mynetwork" #siteConfigNetwork></div>
+<div class="mynetwork" id="mynetwork" #siteConfigNetwork></div>
 
 
 
-<style type="text/css">
+<!-- <style type="text/css">
     #mynetwork {
         width: 700px;
         height: 300px;
@@ -18,5 +44,5 @@
         height: 300px;
         border: 1px solid lightgray;
     }
-</style>
+</style> -->
 

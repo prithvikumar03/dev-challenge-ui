@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { BootstrapService } from './bootstrap.service';
+import { DatamanagerService } from './datamanager.service';
 
 describe('BootstrapService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: BootstrapService = TestBed.get(BootstrapService);
+    const service: DatamanagerService = TestBed.get(DatamanagerService);
     expect(service).toBeTruthy();
   });
 });
