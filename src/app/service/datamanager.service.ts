@@ -39,6 +39,10 @@ export class DatamanagerService implements OnInit{
     return this.filteredEdges;
   }
 
+  getAllEdges(){
+    return this.edges;
+  }
+
   updateNodes(nodeData:ParadiseNode[]){
     this.nodes=[];
     this.nodes=nodeData;
@@ -51,11 +55,15 @@ export class DatamanagerService implements OnInit{
 
   applyEdgeFilter(filterType:string){
     this.filteredEdges=[];
-    this.getEdges().forEach(element => {
-      console.log('Comparing:::',filterType.toLowerCase(),element.title);
-      if(filterType.toLowerCase().includes(element.title.toLowerCase())){
+    this.getAllEdges().forEach(element => {
+      // console.log('Comparing:::',filterType.toLowerCase(),element.title);
+      if(filterType.toLowerCase().includes('no')){
+        this.filteredEdges=this.edges;
+      }
+      else if(filterType.toLowerCase().includes(element.title.toLowerCase())){
         this.filteredEdges.push({from:element.from,to:element.to,title:element.title});
       }
+      // console.log(this.filteredEdges);
     });
 
   }

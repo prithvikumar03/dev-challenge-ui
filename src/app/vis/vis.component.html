@@ -1,3 +1,4 @@
+<html>
 <mat-toolbar color="primary">
     <span class="fill-remaining-space">Paradise Graph Data</span>
 </mat-toolbar>
@@ -22,11 +23,13 @@
             </select>
     </mat-form-field>
     <br/>
-    <button type="submit" class="searchButtonClass" (click)="populateGraph('GetUID')">Get Graph</button>
+    <button type="submit" class="searchButtonClass" (click)="populateGraph()">Get Graph</button>
     <button type="submit" class="filterButtonClass" (click)="applyFilter()">Apply Filter</button>
 </div>
 
 <br/>
 
 <div class="mynetwork" id="mynetwork" #siteConfigNetwork></div>
+
+</html>
 

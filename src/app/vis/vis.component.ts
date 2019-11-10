@@ -4,6 +4,7 @@ import { ElementRef, Renderer2 } from '@angular/core';
 import { PopoverModule, PopoverConfig, PopoverDirective } from 'ngx-bootstrap';
 import { DatamanagerService } from '../service/datamanager.service';
 import { ParadiseNode } from '../model/paradise-node';
+import { ApiService } from '../service/api.service';
 declare var vis:any;
 
 @Component({
@@ -17,7 +18,7 @@ export class VisComponent implements OnInit {
   ids:string[]=['Select','123','456'];
   filters:string[]=['No Filter','Same Address','Is Entity Of','Is Intermediary Of','Is Officer Of','Other'];
   selectedId:string='';
-  selectedFilter:string='';
+  selectedFilter:string='No Filter';
 
   @ViewChild("siteConfigNetwork", {static: false}) networkContainer: ElementRef;
   //@ViewChild("svgNetwork", {static: false}) svgNetworkContainer: ElementRef;
@@ -26,12 +27,12 @@ export class VisComponent implements OnInit {
 
   constructor(
     private dataManagerService:DatamanagerService,
-    private formBuilder: FormBuilder
-    ) { }
+    private formBuilder: FormBuilder,
+    private apiService:ApiService
+  ) { }
 
   ngOnInit() {
     console.log(this.ids);
-
   }
 
   ngAfterViewInit(){
@@ -50,14 +51,7 @@ export class VisComponent implements OnInit {
     };
     var container = this.networkContainer.nativeElement;
     this.network = new vis.Network(container, treedata, options);
-
     var that = this;
-    // this.network.on("hoverNode", function (params) {          
-    //   console.log('hoverNode Event:', params.nodes);
-    // });
-    // this.network.on("blurNode", function(params){
-    //   console.log('blurNode event:', params);      
-    // });
     this.network.on("click", params => {
       var ids = params.nodes;
       console.log('Click event:', this.dataManagerService.getNodes()[ids-1]);      
@@ -83,11 +77,24 @@ export class VisComponent implements OnInit {
   }
 
   applyFilter(){
+    console.log('In Apply Filter');
     this.dataManagerService.applyEdgeFilter(this.selectedFilter);
     var treeData = this.getTreeData();
     this.loadVisTree(treeData); 
   }
+
+  populateGraph(){
+    console.log('In Populate Graph');
+    this.apiService.getAllNodeIds();
+  }
 //   
 }
+
+    // this.network.on("hoverNode", function (params) {          
+    //   console.log('hoverNode Event:', params.nodes);
+    // });
+    // this.network.on("blurNode", function(params){
+    //   console.log('blurNode event:', params);      
+    // });
 
    
