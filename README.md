@@ -1,6 +1,17 @@
-# DevchallengeApp
+# Devchallenge-UI
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.18.
+
+## Installation Instructions
+Download or clone the code from the link below:
+https://github.com/prithvikumar03/dev-challenge-ui.git
+Navigate to the directory
+Install Node.js
+Install all the node modules using npm-install
+Serve the app using “ng serve”
+Alternatively
+Docker file has been provided: Docker build can be used to create a docker image with all the dependencies installed.
+This docker image can be run on the local machine
 
 ## Development server
 
